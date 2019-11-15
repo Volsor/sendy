@@ -1,6 +1,8 @@
+from unittest.mock import patch
+
 import pytest
 from sendy import SendyException
-from unittest.mock import patch
+
 from .conftest import get_empty_args, get_url_for_method
 
 

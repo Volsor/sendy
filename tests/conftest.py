@@ -1,6 +1,7 @@
+import inspect
+
 import pytest
 from sendy import Sendy
-import inspect
 
 
 def get_empty_args(f):
