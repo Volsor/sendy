@@ -1,0 +1,22 @@
+dist: xenial
+language: python
+python:
+- '3.6'
+- '3.7'
+install:
+- pip install tox
+matrix:
+  include:
+    - python: 3.6
+      env:
+       - TOX_ENV=py36
+    - python: 3.7
+      env:
+        - TOX_ENV=py37
+script: tox -e $TOX_ENV
+deploy:
+  provider: pypi
+  user: n1te
+  password:
+    secure: Zq/k8liKPkFA9/fXZuFWffHWulAgbwLgmIzIKzpfU3cyxDkX4zVus89eklHzx3XFho0ylbCFlrfXfWKmkKvbQm+Om4u301kab386gUC4cZl1cSAjWGkOZya8AHlBdeyuFJbkdt/Od+Q0VznxOfananfy5y5f8ct6Oc5kBFV8lRMu8hZctVzw6vmQzHsQTh0wx7tWgs86I8kveWslbVSqTz6E3g/mcFRWRnvh9+Lgz8kIbDEH18gCOi+b9U8GC/F8oh8ZT3gd3B99oq9vtT0wR/wnMb3nlWyZgzKi0h0ESqXISi8yBbB9PMepsul4wfGC/sVUWElnbXx6hBtqo8S/oYeQHHFfsPw3OKiQXAbiUdyNFMxX8F5YnaGTYYsYXpAK1Xevgr8kRlrD15468cB1Xju+BtSGEdoYdo+ilNxl3kKwETMafBLUpvC97lyswgWbvjHYBrYeZFDjUnBFdYBCJkYTR0QxONiGttMw+iCNcVyG7jkfhkeUnpfdWCP0vw1h4wXix00gKRepuGCRbGMjH165IJbq17EL7eyHPR0Dsn297uYnpicJcdej0ZMDqFrKExXl6a5fIKYXyB7HKum0u70qZpKDq4l9XND1PE0PaVsPbdoRbooG+XOBNY2ZSePs0Yey4JD499K4TJyTo+0GyPMehzn2Gc0fR6MS7AeE7YE=
+  skip_existing: true
