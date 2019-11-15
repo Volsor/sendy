@@ -1,6 +1,7 @@
 from urllib.parse import urljoin
 
 import requests
+from urllib3.exceptions import NewConnectionError
 
 from .exceptions import *
 
@@ -65,7 +66,7 @@ class Sendy:
 
         try:
             response = requests.post(self._get_url(resource), data=params, timeout=self.timeout).text
-        except requests.exceptions.RequestException as e:
+        except (requests.exceptions.RequestException, NewConnectionError) as e:
             raise SendyServerError(str(e))
 
         return self._validate_response(success_value, response)
