@@ -18,7 +18,7 @@ def test_request_params(sendy):
             'gdpr': True,
             'silent': True,
             'boolean': 'true',
-        })
+        }, timeout=15)
 
 
 def test_api_auth(sendy):

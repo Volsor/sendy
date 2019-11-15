@@ -21,4 +21,4 @@ def get_url_for_method(method):
 
 @pytest.fixture
 def sendy():
-    return Sendy('test-api-key', 'http://example.com')
+    return Sendy('test-api-key', 'http://example.com', request_timeout=15)
