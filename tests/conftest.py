@@ -1,7 +1,7 @@
 import inspect
 
 import pytest
-from sendy import Sendy
+from sendyapi import Sendy
 
 
 def get_empty_args(f):
