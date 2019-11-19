@@ -4,7 +4,7 @@ from setuptools import setup
 
 setup(
     name='sendy',
-    version='0.3.1',
+    version='0.3.2',
     description='Sendy.co API wrapper',
     license='MIT',
     author='Stanislav Shershnev',
