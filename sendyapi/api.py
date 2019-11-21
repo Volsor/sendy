@@ -80,8 +80,8 @@ class Sendy:
             'country': country,
             'ipaddress': ipaddress,
             'referrer': referrer,
-            'gdpr': gdpr,
-            'silent': silent,
+            'gdpr': str(gdpr).lower(),
+            'silent': str(silent).lower(),
             'boolean': 'true',
         }
 
