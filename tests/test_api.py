@@ -17,8 +17,8 @@ def test_request_params(sendy):
             'country': '',
             'ipaddress': '',
             'referrer': '',
-            'gdpr': True,
-            'silent': True,
+            'gdpr': 'true',
+            'silent': 'true',
             'boolean': 'true',
         }, timeout=15)
 
