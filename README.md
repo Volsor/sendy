@@ -7,7 +7,7 @@ Python wrapper for [sendy.co API](https://sendy.co/api)
 
 ## Installation
 
-`pip install drf-orjson`
+`pip install sendy`
 
 ## Usage
 
