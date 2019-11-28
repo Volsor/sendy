@@ -16,15 +16,14 @@ class Sendy:
         'Complained',
     )
 
-    # 'method_name': (resource, success_value, need_auth)
+    # 'method_name': (resource, success_value)
     methods = {
-        'subscribe': ('/subscribe', '1', False),
-        'unsubscribe': ('/unsubscribe', '1', False),
-        'delete_subscriber': ('/api/subscribers/delete.php', '1', True),
-        'get_subscription_status': ('/api/subscribers/subscription-status.php', subscription_statuses, True),
-        'get_subscribers_count': ('/api/subscribers/active-subscriber-count.php', int, True),
-        'create_campaign': ('/api/campaigns/create.php', ('Campaign created', 'Campaign created and now sending'),
-                            True),
+        'subscribe': ('/subscribe', '1'),
+        'unsubscribe': ('/unsubscribe', '1'),
+        'delete_subscriber': ('/api/subscribers/delete.php', '1'),
+        'get_subscription_status': ('/api/subscribers/subscription-status.php', subscription_statuses),
+        'get_subscribers_count': ('/api/subscribers/active-subscriber-count.php', int),
+        'create_campaign': ('/api/campaigns/create.php', ('Campaign created', 'Campaign created and now sending')),
     }
 
     _default_timeout = 10
@@ -59,10 +58,8 @@ class Sendy:
         return urljoin(self.url, resource)
 
     def _make_request(self, method, params):
-        resource, success_value, need_auth = self.methods.get(method)
-
-        if need_auth:
-            params['api_key'] = self.api_key
+        resource, success_value = self.methods.get(method)
+        params['api_key'] = self.api_key
 
         try:
             response = requests.post(self._get_url(resource), data=params, timeout=self.timeout).text

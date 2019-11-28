@@ -20,14 +20,8 @@ def test_request_params(sendy):
             'gdpr': 'true',
             'silent': 'true',
             'boolean': 'true',
+            'api_key': 'test-api-key',
         }, timeout=15)
-
-
-def test_api_auth(sendy):
-    with patch('requests.post') as mock:
-        mock.return_value.text = '1'
-        sendy.get_subscribers_count('')
-        assert mock.call_args[1]['data']['api_key'] == 'test-api-key'
 
 
 def test_sendy_exception(sendy):
