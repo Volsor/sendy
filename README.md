@@ -12,7 +12,7 @@ Python wrapper for [sendy.co API](https://sendy.co/api)
 ## Usage
 
 ```Python
-from sendy import Sendy, SendyServerError, SendyAlreadySubscribed
+from sendyapi import Sendy, SendyServerError, SendyAlreadySubscribed
 
 
 sendy = Sendy('your-api_key', 'https://sendy-server-url')
